@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BoiCanhRouteImport } from './routes/boi-canh'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DuLieuRouteImport } from './routes/du-lieu'
+import { Route as HeThongRouteImport } from './routes/he-thong'
+import { Route as KpiRouteImport } from './routes/kpi'
+import { Route as MoHinhRouteImport } from './routes/mo-hinh'
+import { Route as SanPhamRouteImport } from './routes/san-pham'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BoiCanhRoute = BoiCanhRouteImport.update({
+  id: '/boi-canh',
+  path: '/boi-canh',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DuLieuRoute = DuLieuRouteImport.update({
+  id: '/du-lieu',
+  path: '/du-lieu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeThongRoute = HeThongRouteImport.update({
+  id: '/he-thong',
+  path: '/he-thong',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KpiRoute = KpiRouteImport.update({
+  id: '/kpi',
+  path: '/kpi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoHinhRoute = MoHinhRouteImport.update({
+  id: '/mo-hinh',
+  path: '/mo-hinh',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SanPhamRoute = SanPhamRouteImport.update({
+  id: '/san-pham',
+  path: '/san-pham',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/boi-canh': typeof BoiCanhRoute
+  '/dashboard': typeof DashboardRoute
+  '/du-lieu': typeof DuLieuRoute
+  '/he-thong': typeof HeThongRoute
+  '/kpi': typeof KpiRoute
+  '/mo-hinh': typeof MoHinhRoute
+  '/san-pham': typeof SanPhamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/boi-canh': typeof BoiCanhRoute
+  '/dashboard': typeof DashboardRoute
+  '/du-lieu': typeof DuLieuRoute
+  '/he-thong': typeof HeThongRoute
+  '/kpi': typeof KpiRoute
+  '/mo-hinh': typeof MoHinhRoute
+  '/san-pham': typeof SanPhamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/boi-canh': typeof BoiCanhRoute
+  '/dashboard': typeof DashboardRoute
+  '/du-lieu': typeof DuLieuRoute
+  '/he-thong': typeof HeThongRoute
+  '/kpi': typeof KpiRoute
+  '/mo-hinh': typeof MoHinhRoute
+  '/san-pham': typeof SanPhamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/boi-canh'
+    | '/dashboard'
+    | '/du-lieu'
+    | '/he-thong'
+    | '/kpi'
+    | '/mo-hinh'
+    | '/san-pham'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/boi-canh'
+    | '/dashboard'
+    | '/du-lieu'
+    | '/he-thong'
+    | '/kpi'
+    | '/mo-hinh'
+    | '/san-pham'
+  id:
+    | '__root__'
+    | '/'
+    | '/boi-canh'
+    | '/dashboard'
+    | '/du-lieu'
+    | '/he-thong'
+    | '/kpi'
+    | '/mo-hinh'
+    | '/san-pham'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BoiCanhRoute: typeof BoiCanhRoute
+  DashboardRoute: typeof DashboardRoute
+  DuLieuRoute: typeof DuLieuRoute
+  HeThongRoute: typeof HeThongRoute
+  KpiRoute: typeof KpiRoute
+  MoHinhRoute: typeof MoHinhRoute
+  SanPhamRoute: typeof SanPhamRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/boi-canh': {
+      id: '/boi-canh'
+      path: '/boi-canh'
+      fullPath: '/boi-canh'
+      preLoaderRoute: typeof BoiCanhRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/du-lieu': {
+      id: '/du-lieu'
+      path: '/du-lieu'
+      fullPath: '/du-lieu'
+      preLoaderRoute: typeof DuLieuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/he-thong': {
+      id: '/he-thong'
+      path: '/he-thong'
+      fullPath: '/he-thong'
+      preLoaderRoute: typeof HeThongRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kpi': {
+      id: '/kpi'
+      path: '/kpi'
+      fullPath: '/kpi'
+      preLoaderRoute: typeof KpiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mo-hinh': {
+      id: '/mo-hinh'
+      path: '/mo-hinh'
+      fullPath: '/mo-hinh'
+      preLoaderRoute: typeof MoHinhRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/san-pham': {
+      id: '/san-pham'
+      path: '/san-pham'
+      fullPath: '/san-pham'
+      preLoaderRoute: typeof SanPhamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BoiCanhRoute: BoiCanhRoute,
+  DashboardRoute: DashboardRoute,
+  DuLieuRoute: DuLieuRoute,
+  HeThongRoute: HeThongRoute,
+  KpiRoute: KpiRoute,
+  MoHinhRoute: MoHinhRoute,
+  SanPhamRoute: SanPhamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

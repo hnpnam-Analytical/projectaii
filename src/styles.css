@@ -173,10 +173,12 @@ main p.text-base, main p.text-sm:not(.font-semibold):not(.font-medium),
 .content-section div.text-sm.leading-relaxed { font-size: 16px; line-height: 1.65; }
 main p:not(.tabular-nums), .prose-body, footer p { max-width: 65ch; }
 figcaption, main p.text-xs, footer .text-sm { font-size: 14px; line-height: 1.65; }
-.font-mono, .tabular-nums, table, table .font-medium, table .font-semibold {
+.font-mono, .tabular-nums, table, table .font-medium, table .font-semibold,
+main p.kpi-label, .kpi-labels li {
   font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500;
 }
-.tabular-nums.font-bold, table th { font-weight: 700; }
+.tabular-nums, table th { font-weight: 700; }
+main > section:first-child > .container-page > .grid > div > p.uppercase { font-size: 13px; }
 main .text-highlight.tabular-nums { font-size: 48px; font-weight: 700; line-height: 1.2; }
 @media (min-width: 768px) {
   body { font-size: 17px; }

@@ -5,5 +5,5 @@
 - [x] Verify all routes and navigation at 375px, 768px and 1440px.
 
 ## Typography-only update
-- [ ] Load the three requested fonts and apply shared typography roles and sizes without changing content, colors or layout.
-- [ ] Verify all nine pages, Vietnamese accents and font loading at 375px, 768px and 1440px.
+- [x] Load the three requested fonts and apply shared typography roles and sizes without changing content, colors or layout.
+- [x] Verify all nine pages, Vietnamese accents and font loading at 375px, 768px and 1440px.

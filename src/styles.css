@@ -19,8 +19,9 @@
  */
 
 @theme inline {
-  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Be Vietnam Pro", ui-monospace, monospace;
+  --font-sans: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --color-highlight: var(--highlight);
   --color-highlight-foreground: var(--highlight-foreground);
   --color-inverse-muted: var(--inverse-muted);
@@ -122,7 +123,7 @@
 
 @layer base {
   html { scroll-padding-top: 6rem; }
-  body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.6; }
+  body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.65; }
   h1, h2, h3, h4 { color: var(--color-primary); letter-spacing: 0; overflow-wrap: break-word; }
   h1 { line-height: 1.2; }
   h2 { line-height: 1.3; }
@@ -131,8 +132,8 @@
 }
 
 @utility container-page { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 1.25rem; @media (min-width: 768px) { padding-inline: 2.5rem; } }
-@utility eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0; text-transform: uppercase; color: var(--color-secondary); }
-@utility prose-body { font-size: 1rem; line-height: 1.6; max-width: 70ch; @media (min-width: 768px) { font-size: 1.0625rem; } }
+@utility eyebrow { font-family: var(--font-heading); font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: uppercase; color: var(--color-secondary); }
+@utility prose-body { font-family: var(--font-sans); font-size: 1rem; font-weight: 400; line-height: 1.65; max-width: 65ch; @media (min-width: 768px) { font-size: 1.0625rem; } }
 
 .nav-trigger { position: relative; border-radius: 0; padding-inline: 0.5rem; color: var(--muted-foreground); }
 .nav-selected { position: relative; color: var(--primary); font-weight: 700; }
@@ -141,13 +142,50 @@
 .content-section > .section-grid > div:last-child > .grid > .rounded-md,
 .content-section .figure-frame { border-radius: 16px; }
 .content-section .text-sm { line-height: 1.65; }
-.content-section h3 { font-size: 20px; }
 .enterprise-card { border: 1px solid var(--border); border-radius: 16px; background: var(--card); transition: transform 250ms ease, box-shadow 250ms ease; }
 .enterprise-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-elegant-value); }
-.hero-title { color: var(--primary-foreground); font-size: 32px; max-width: 20ch; }
+.hero-title { color: var(--primary-foreground); max-width: 20ch; }
 .browser-frame { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px -20px oklch(0.1 0.03 249 / 0.45); }
 .page-enter { animation: page-enter 250ms ease-out; }
 @keyframes page-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-@media (min-width: 768px) { .content-section { padding-block: 80px; } .hero-title { font-size: 48px; } }
-@media (min-width: 1280px) { .hero-title { font-size: 56px; } }
+@media (min-width: 768px) { .content-section { padding-block: 80px; } }
+
+/* Shared typography roles; all existing layout and color tokens stay intact. */
+body { letter-spacing: 0; }
+h1, h2, h3, h4, button, [role="button"], [role="menuitem"], nav,
+header, footer a, .font-semibold, .font-medium, .font-bold {
+  font-family: var(--font-heading);
+}
+h1 { font-size: 32px; font-weight: 800; line-height: 1.15; }
+h2 { font-size: 24px; font-weight: 700; line-height: 1.25; }
+h3 { font-size: 18px; font-weight: 600; line-height: 1.35; }
+h1, h2, h3, h4 { letter-spacing: 0; text-transform: none; }
+.text-xs, .text-\[10px\], .text-\[11px\] { font-size: 14px; line-height: 1.65; }
+.eyebrow, main > section:first-child > .container-page > .grid > div > p.uppercase {
+  font-family: var(--font-heading); font-size: 13px; font-weight: 600; line-height: 1.65; letter-spacing: 0;
+}
+main p:not(.font-mono):not(.tabular-nums):not(.eyebrow):not(.uppercase):not(.font-semibold):not(.font-medium):not(.font-bold),
+.prose-body, figcaption, header span.text-muted-foreground, [role="menuitem"] span.text-muted-foreground {
+  font-family: var(--font-sans); font-weight: 400; line-height: 1.65;
+}
+main p.text-base, main p.text-sm:not(.font-semibold):not(.font-medium),
+.content-section li, .enterprise-card .text-sm:not(.font-semibold),
+.content-section div.text-sm.leading-relaxed { font-size: 16px; line-height: 1.65; }
+main p:not(.tabular-nums), .prose-body, footer p { max-width: 65ch; }
+figcaption, main p.text-xs, footer .text-sm { font-size: 14px; line-height: 1.65; }
+.font-mono, .tabular-nums, table, table .font-medium, table .font-semibold {
+  font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500;
+}
+.tabular-nums.font-bold, table th { font-weight: 700; }
+main .text-highlight.tabular-nums { font-size: 48px; font-weight: 700; line-height: 1.2; }
+@media (min-width: 768px) {
+  body { font-size: 17px; }
+  h1 { font-size: 52px; }
+  h2 { font-size: 32px; }
+  h3 { font-size: 20px; }
+  main p.text-base, main p.text-sm:not(.font-semibold):not(.font-medium),
+  .content-section li, .enterprise-card .text-sm:not(.font-semibold),
+  .content-section div.text-sm.leading-relaxed { font-size: 17px; }
+  main .text-highlight.tabular-nums { font-size: 72px; }
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

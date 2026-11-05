@@ -44,7 +44,7 @@ function Page() {
                 {b.t.map(([t, k]) => (
                   <div key={t} className="px-5 py-4">
                     <p className="text-sm font-semibold text-secondary">Thủ thuật {t}</p>
-                    <ul className="mt-2 space-y-1 text-sm">
+                    <ul className="kpi-labels mt-2 space-y-1 text-sm">
                       {k.map((x) => <li key={x} className="flex gap-2"><span className="text-secondary">▪</span>{x}</li>)}
                     </ul>
                   </div>

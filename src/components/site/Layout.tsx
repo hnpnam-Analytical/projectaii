@@ -130,7 +130,7 @@ export function Stat({ value, label, note }: { value: string; label: string; not
   return (
     <div className="border-l-2 border-secondary/30 pl-4">
       <p className="text-2xl font-semibold tabular-nums text-primary md:text-3xl">{value}</p>
-      <p className="mt-1 text-sm font-medium text-foreground">{label}</p>
+      <p className="kpi-label mt-1 text-sm font-medium text-foreground">{label}</p>
       {note && <p className="mt-0.5 text-xs text-muted-foreground">{note}</p>}
     </div>
   );

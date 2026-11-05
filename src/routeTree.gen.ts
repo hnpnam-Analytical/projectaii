@@ -16,6 +16,7 @@ import { Route as DuLieuRouteImport } from './routes/du-lieu'
 import { Route as HeThongRouteImport } from './routes/he-thong'
 import { Route as KpiRouteImport } from './routes/kpi'
 import { Route as MoHinhRouteImport } from './routes/mo-hinh'
+import { Route as QuanTriRouteImport } from './routes/quan-tri'
 import { Route as SanPhamRouteImport } from './routes/san-pham'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const MoHinhRoute = MoHinhRouteImport.update({
   path: '/mo-hinh',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuanTriRoute = QuanTriRouteImport.update({
+  id: '/quan-tri',
+  path: '/quan-tri',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SanPhamRoute = SanPhamRouteImport.update({
   id: '/san-pham',
   path: '/san-pham',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/he-thong': typeof HeThongRoute
   '/kpi': typeof KpiRoute
   '/mo-hinh': typeof MoHinhRoute
+  '/quan-tri': typeof QuanTriRoute
   '/san-pham': typeof SanPhamRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/he-thong': typeof HeThongRoute
   '/kpi': typeof KpiRoute
   '/mo-hinh': typeof MoHinhRoute
+  '/quan-tri': typeof QuanTriRoute
   '/san-pham': typeof SanPhamRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/he-thong': typeof HeThongRoute
   '/kpi': typeof KpiRoute
   '/mo-hinh': typeof MoHinhRoute
+  '/quan-tri': typeof QuanTriRoute
   '/san-pham': typeof SanPhamRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/he-thong'
     | '/kpi'
     | '/mo-hinh'
+    | '/quan-tri'
     | '/san-pham'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/he-thong'
     | '/kpi'
     | '/mo-hinh'
+    | '/quan-tri'
     | '/san-pham'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/he-thong'
     | '/kpi'
     | '/mo-hinh'
+    | '/quan-tri'
     | '/san-pham'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   HeThongRoute: typeof HeThongRoute
   KpiRoute: typeof KpiRoute
   MoHinhRoute: typeof MoHinhRoute
+  QuanTriRoute: typeof QuanTriRoute
   SanPhamRoute: typeof SanPhamRoute
 }
 
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MoHinhRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quan-tri': {
+      id: '/quan-tri'
+      path: '/quan-tri'
+      fullPath: '/quan-tri'
+      preLoaderRoute: typeof QuanTriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/san-pham': {
       id: '/san-pham'
       path: '/san-pham'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   HeThongRoute: HeThongRoute,
   KpiRoute: KpiRoute,
   MoHinhRoute: MoHinhRoute,
+  QuanTriRoute: QuanTriRoute,
   SanPhamRoute: SanPhamRoute,
 }
 export const routeTree = rootRouteImport

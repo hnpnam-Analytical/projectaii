@@ -24,6 +24,7 @@ export const NAV: (NavItem | NavGroup)[] = [
     ],
   },
   { to: "/dashboard", label: "Dashboard & User flow" },
+  { to: "/quan-tri", label: "Backlog & RACI" },
 ];
 
 function isGroup(n: NavItem | NavGroup): n is NavGroup {

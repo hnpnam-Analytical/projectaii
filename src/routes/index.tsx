@@ -29,7 +29,7 @@ function Index() {
         <div className="container-page py-12 md:py-16">
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-12">
             <div>
-              <p className="text-xs font-semibold uppercase text-inverse-muted">Dự án AI · Báo cáo tiến độ lần 1 & 2</p>
+              <p className="text-xs font-semibold uppercase text-inverse-muted">{"\n"}</p>
               <h1 className="hero-title mt-5 font-bold">SmartBites AI: dự báo nhu cầu suất ăn cho mô hình bếp trung tâm</h1>
               <p className="mt-6 max-w-[70ch] text-base leading-relaxed text-inverse-muted">Nền tảng dashboard hỗ trợ ra quyết định cho Fitfood Vietnam: dự báo số suất ăn theo từng món và từng bếp,
                 phát hiện sớm nguy cơ quá tải công suất, và giả lập tác động của giá bán, khuyến mãi lên nhu cầu.</p>
